@@ -1,0 +1,112 @@
+body {
+    background-color: #F2F4F9
+}
+
+.block-body {
+    width: 950px;
+    margin: 5px auto;
+    background-color: white;
+    border: 1px solid #E0E0E0;
+}
+
+.block-header {
+    width: 950px;
+    height: 80px;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.block-header-left {
+    width: 500px;
+    float: left;
+}
+
+.block-header-left h3 {
+    font: 23px sans-serif;
+    margin-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.block-header-left p {
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.block-header-left a {
+    font: 15px sans-serif;
+    color: black;
+}
+
+.block-header-right {
+    width: 300px;
+    float: right;
+}
+
+.block-header-right p {
+    margin-top: 10px;
+    margin-right: 10px;
+    font: 13px sans-serif;
+}
+
+.block-header-right a {
+    font: 14px sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+.block-header-right a:hover {
+    text-decoration: underline;
+}
+
+.block-header-right span {
+    border-bottom: 1px dashed black;
+}
+
+.left-nav {
+    width: 200px;
+    height: auto;
+    min-height: 200px;
+    position: absolute;
+}
+
+.left-nav ul {
+    margin-top: 10px;
+}
+
+.left-nav li {
+    margin-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #EDEDED;
+}
+
+.left-nav a {
+    font: 15px sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+.left-nav a:hover {
+    text-decoration: underline;
+}
+
+.block-content {
+    width: 747px;
+    min-height: 650px;
+    height: auto;
+    margin-left: 201px;
+    border-left: 1px solid #E0E0E0;
+}
+
+.block-parameters {
+    height: 40px;
+    border-bottom: 1px solid #E0E0E0;
+    background-color: #F2F2F2;
+}
+
+.title-page {
+    font: 18px sans-serif;
+    margin-top: 10px;
+    margin-left: 10px;
+    position: absolute;
+}

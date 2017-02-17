@@ -1,6 +1,6 @@
 <?php
 	session_start();
-    define('myeshop', true); // ключ доступа к файлам
+    define('myshop', true); // ключ доступа к файлам
     include("include/db_connect.php");
     include("include/functions.php");
     
@@ -20,7 +20,7 @@
             if (mysql_num_rows($result) >0 ) // если админ такой есть , то
             {
                 $row = mysql_fetch_array($result);
-                $_SESSION['auth_admin'] = 'yes_auth'; //с помощью сессии определяем авторизован пользователь или нет, если да, то перенаправляем на вдмин панель
+                $_SESSION['auth_admin'] = 'yes_auth'; //с помощью сессии определяем авторизован админ или нет, если да, то перенаправляем на админ панель
                 //укзываем куда перенаправить
                 header("Location: index.php");
             }
