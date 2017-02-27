@@ -12,6 +12,20 @@
 		$_SESSION['urlpage'] = "<a href= 'index.php'>Главная</a> \ <a href= 'product.php'>Товары</a>"; // в сессию помещаем ссылку для навигационной цепочки
 
 		include("include/db_connect.php"); // подключаемся к бд
+        
+        // удаление товара
+        
+        $action = $_GET["action"];
+        if (isset($action)) // если сущетсвует, т.е. не пуста
+        {
+            $id = (int)$_GET["id"];
+            switch ($action)
+            {
+                case 'delete':
+                    $delete = mysql_query("DELETE FROM table_products WHERE products_id = '$id'", $link);
+                    break;
+            }
+        }
 ?>	
 <!DOCTYPE HTML>
 <html>
@@ -19,6 +33,12 @@
 	<meta http-equiv ="content-type" content="text/html" />
 	<link href ="css/reset.css" rel="stylesheet" type="text/css" />
 	<link href ="css/style.css" rel="stylesheet" type="text/css" />
+    <link href ="jquery_confirm/jquery_confirm.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script> 
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="jquery_confirm/jquery_confirm.js"></script> 
+    
 	<title>Панель управления</title>
 </head>
 
