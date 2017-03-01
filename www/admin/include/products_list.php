@@ -1,6 +1,6 @@
 <ul class="list">
     <li>Товары</li>
-    <li><a class="select-brand" href="#">!!!<? echo $selectBrand; ?></a>
+    <li><a class="select-brand" href="#"><? echo $selectBrand; ?></a>
         <div class="list-brands">
             <ul>
                 <li><a href="product.php?category=all"><strong>Все товары</strong></a></li>

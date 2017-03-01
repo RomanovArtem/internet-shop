@@ -13,6 +13,8 @@
 
 		include("include/db_connect.php"); // подключаемся к бд
         
+        include("include/sort-product.php");  // сортировку товаров, выводит товары данного бренда
+        
         // удаление товара
         
         $action = $_GET["action"];
@@ -48,7 +50,7 @@
 		include("include/block-header.php"); 
         
         //запрос о кол-ве товаров в БД
-        $count_products = mysql_query("SELECT * FROM table_products", $link);
+        $count_products = mysql_query("SELECT * FROM table_products $category", $link);
         $count_products = mysql_num_rows($count_products); 
 	?>
 	<div class="block-content">
@@ -58,7 +60,7 @@
             ?>
 		</div>
         <div class="block-info">
-        <p class="cout-style">Всего товаров: <strong><?php echo $count_products;?></strong></p>
+        <p class="count-style">Всего товаров: <strong><?php echo $count_products;?></strong></p>
         </div>
         
         <!--сначала создаю список, т.к. товары выводятся списком -->
@@ -67,10 +69,11 @@
                 $num = 8;//сколько выводить товаров на страницу
                 $page = (int)$_GET['page']; // номер текущей страницы
                 
-                $count = mysql_query("SELECT COUNT(*) FROM table_products $cat",$link); // общее кол-во товаров в бд
+                $count = mysql_query("SELECT COUNT(*) FROM table_products $category",$link); // общее кол-во товаров в бд
+                
                 $temp = mysql_fetch_array($count); // значение запроса
                 
-                $post = $temp[0]; // общее кол-во товаров
+                $post = $temp[0]; // общее кол-во товаровecho $post;
                     
                 // сколько страниц нужно
                 $total = (($post - 1) / $num) + 1;
@@ -86,7 +89,7 @@
             
                 if($temp[0] > 0) // есил товары есть
                 {
-                    $result = mysql_query("SELECT * FROM table_products $cat ORDER BY products_id DESC LIMIT $start, $num", $link);
+                    $result = mysql_query("SELECT * FROM table_products $category ORDER BY products_id DESC LIMIT $start, $num", $link);
                     
                     if(mysql_num_rows($result) > 0)
                     {
