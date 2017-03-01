@@ -53,7 +53,9 @@
 	?>
 	<div class="block-content">
 		<div class = "block-parameters">
-
+            <?php
+		      include("include/products_list.php"); 
+            ?>
 		</div>
         <div class="block-info">
         <p class="cout-style">Всего товаров: <strong><?php echo $count_products;?></strong></p>

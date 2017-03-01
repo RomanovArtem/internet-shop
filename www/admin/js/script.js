@@ -19,4 +19,8 @@ $(document).ready(function() {
             }
         });
     });
+    
+    $('.select-brand').click(function() {
+        $(".list-brands").slideToggle(200);
+    });
 });

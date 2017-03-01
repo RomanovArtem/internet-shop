@@ -180,7 +180,6 @@ a.pstr-prev, a.pstr-next{
 a.pstr-prev:hover, a.pstr-next:hover{
     text-decoration: none;
 }
- 
 .pstrnav a.pstr-active{
     color: #D95D27;
     font-weight: bold;
@@ -191,6 +190,42 @@ a.pstr-prev:hover, a.pstr-next:hover{
     margin-top: 5px;  
 } 
 /**/
-.footerfix {
+.footerfix{
     clear: both;
+}
+.list > li{
+    float: left;
+    margin-left: 10px;
+    font: 14px sans-serif;
+    margin-top: 13px;
+}
+.list > li > a{
+    color: #748996;
+}
+.list-brands{
+    background-color: white;
+    border: 1px solid #A3C0D2;
+    position: absolute;
+    width: 450px;
+    padding-top: 5px;
+    padding-bottom: 7px;
+    height: auto;
+    z-index: 1;
+    display: none;
+}
+.list-brands > ul{
+    width: 150px;
+    float: left;
+}
+.list-brands > ul > li{
+    margin-top: 3px;
+    margin-left: 10px;
+}
+.list-brands > ul > li > a {
+    font: 15px sans-serif;
+    text-decoration: none;
+    color: black;
+}
+.list-brands > ul > li > a:hover {
+    text-decoration: underline;
 }
