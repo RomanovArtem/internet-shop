@@ -229,3 +229,117 @@ a.pstr-prev:hover, a.pstr-next:hover{
 .list-brands > ul > li > a:hover {
     text-decoration: underline;
 }
+.add-product {
+    margin-top: 12px;
+    margin-left: 618px;
+    position: absolute;
+}
+.add-product a {
+    font: 13px sans-serif;
+    color: black;
+    text-decoration: none;
+    border: 1px solid #FFDACA;
+    background-color: #FFE7E7;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 5px;
+}
+.add-product a:hover {
+    border: 1px solid #FFBFA4;
+}
+.edit-product {
+    margin-top: 20px;
+}
+.edit-product label{
+    position: absolute;
+    font: 15px sans-serif;
+    margin-top: 6px;
+    margin-left: 20px;
+}
+.edit-product li {
+    margin-top: 10px;
+}
+.edit-product input {
+    margin-left: 170px;
+    width: 400px;
+    height: 25px;
+    border: 1px solid #D4D4D4;
+    padding-left: 5px;
+    font: 15px sans-serif;
+}
+.edit-product textarea {
+    margin-left: 170px;
+    width: 401px;
+    height: 80px;
+    border: 1px solid #D4D4D4;
+    font: 15px sans-serif;
+}
+.edit-product select.type {
+    margin-left: 170px;
+    width: 250px;
+    height: 25px;
+    border: 1px solid #D4D4D4;
+}
+.edit-product select {
+    margin-left: 170px;
+    width: 250px;
+    border: 1px solid #D4D4D4;
+}
+.label-image {
+    position: absolute;
+    font: 15px sans-serif;
+    margin-top: 6px;
+    margin-left: 20px;
+}
+.base-img {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.base-img input {
+    margin-left: 15px;
+}
+.click-header {
+    font: bold 15px sans-serif;
+    cursor: pointer;
+    padding-left: 25px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background-color: #EAEAEA;
+    border: 1px solid #E3E3E3;
+    margin-bottom: 5px;
+}
+.click-header:hover {
+    background-color: #DDDDDD;
+}
+.div-editor1 ,.div-editor2 {
+    display: none;
+    margin-bottom: 15px;
+}
+.titleh3 {
+    font: 15px sans-serif;
+    margin-top: 6px;
+    margin-left: 20px;
+}
+.checkbox li{
+    margin-top: 5px;
+    margin-left: 15px;
+    font: 15px sans-serif;
+}
+.submit-form {
+    border: 1px solid #A8BBD4;
+    background-color: #BBD0EC;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-right: 15px;
+    font: bold 12px sans-serif;
+    color: black;
+    cursor: pointer;
+    margin-bottom: 20px;
+} 
+.submit-form:hover {
+    border: 1px solid #779FD3;
+}

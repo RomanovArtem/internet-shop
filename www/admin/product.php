@@ -61,6 +61,7 @@
 		</div>
         <div class="block-info">
         <p class="count-style">¬сего товаров: <strong><?php echo $count_products;?></strong></p>
+        <p class="add-product"><a href="add_product.php">ƒобавить товар</a></p>
         </div>
         
         <!--сначала создаю список, т.к. товары вывод€тс€ списком -->

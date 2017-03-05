@@ -23,4 +23,9 @@ $(document).ready(function() {
     $('.select-brand').click(function() {
         $(".list-brands").slideToggle(200);
     });
+    
+    $('.click-header').click(function(){
+        $(this).next().slideToggle(400); // определяем объект на который нажади , и next-ом открываем следующий объект (класс)
+    });
+    
 });
