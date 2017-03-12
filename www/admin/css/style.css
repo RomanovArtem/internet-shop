@@ -343,3 +343,25 @@ a.pstr-prev:hover, a.pstr-next:hover{
 .submit-form:hover {
     border: 1px solid #779FD3;
 }
+.form-error {
+    font: bold 14px sans-serif;
+    color: red;
+    background-color: #F7EDEF;
+    border: 1px solid #FAC8D3;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-top: 0;
+    text-align: center;
+}
+.form-success {
+    font: bold 14px sans-serif;
+    color: black;
+    background-color: #E6EED9;
+    border: 1px solid #D1E7BC;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-top: 0;
+    text-align: center;
+}
