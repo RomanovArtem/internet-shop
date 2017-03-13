@@ -16,7 +16,23 @@
         
         $id = clear_strings($_GET["id"]);
         
-        include("include/checking_fields.php");	
+        include("include/checking_fields_edit_product.php");	
+        
+        // удаление основной картинки
+        $action = clear_strings($_GET["action"]);
+        if (isset($action))
+        {
+            switch ($action)
+            {
+                case 'delete':
+                if (file_exists("../upload_images/".$_GET["img"]))
+                {
+                    unlink("../upload_images/".$_GET["img"]); // удаляем файл
+                    //$update_img = mysql_query("UPDATE table_products SET image='' WHERE products_id = '$id'",$link);
+                }
+                break;
+            }
+        }
   
 ?>	
 <!DOCTYPE HTML>
@@ -65,12 +81,12 @@
                 
                 <li>
                     <label>Краткое описание</label>
-                    <textarea name="form-seo-description">"'.$row["mini_description"].'"</textarea>
+                    <textarea name="form-seo-description">'.$row["mini_description"].'</textarea>
                 </li>
                 
                 <li>
                     <label>Краткие хар-ки</label>
-                    <textarea name="form-seo-features">"'.$row["mini_features"].'"</textarea>
+                    <textarea name="form-seo-features">'.$row["mini_features"].'</textarea>
                 </li> 
                 
                 <li>
@@ -84,9 +100,20 @@
                                 $result_brand = mysql_fetch_array($brand);
                                 do
                                 {
+                                    $str1 = $result_brand["id"];
+                                    $str2 = $row["brand_id"];
+                                    if ($str1 == $str2)
+                                    {
+                                        echo '
+                                        <option selected value = "'.$result_brand["id"].'">'.$result_brand["category"].': '.$result_brand["brand"].'</option>
+                                    ';
+                                    }
+                                    else
+                                    {
                                     echo '
                                         <option value = "'.$result_brand["id"].'">'.$result_brand["category"].': '.$result_brand["brand"].'</option>
                                     ';
+                                    }
                                 } while ($result_brand = mysql_fetch_array($brand));
                            }
                            
@@ -109,7 +136,7 @@
             
             <div class="baseimg">
                 <img src="'.$img_path.'" width="'.$width.'" height="'.$height.'" />
-                <a href="editor_product.php?id='.$row["products_id"].'&img='.$row["image"].'&action=delete"></a>
+                <a href="edit_product.php?id='.$row["products_id"].'&img='.$row["image"].'&action=delete"></a>
             </div> 
             ';
             }
@@ -127,7 +154,7 @@
             
             <h3 class="click-header">Описание товара</h3>
             <div class="div-editor1">
-                <textarea id="editor1" name="txt1" cols="100" rows="20">"'.$row["description"].'"</textarea>
+                <textarea id="editor1" name="txt1" cols="100" rows="20">'.$row["description"].'</textarea>
                     <script type="text/javascript">
                         var ckeditor1 = CKEDITOR.replace( "editor1" );
                         AjexFileManager.init({
@@ -139,7 +166,7 @@
             
             <h3 class="click-header">Характеристики товара</h3>
             <div class="div-editor2">
-                <textarea id="editor2" name="txt2" cols="100" rows="20">"'.$row["features"].'"</textarea>
+                <textarea id="editor2" name="txt2" cols="100" rows="20">'.$row["features"].'</textarea>
                     <script>
                         var ckeditor1 = CKEDITOR.replace( "editor2" );
                         AjexFileManager.init({
@@ -169,7 +196,10 @@
                            ';
                            } while($row = mysql_fetch_array($result));
                            }
-                        ?>
+                           
+                           
+        
+?>
         
     </div>
 </div>

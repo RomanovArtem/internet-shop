@@ -13,7 +13,7 @@
 
 		include("include/db_connect.php"); // подключаемся к бд
         include("include/functions.php");
-        include("include/checking_fields.php");	
+        include("include/checking_fields_add_product.php");	
   
 ?>	
 <!DOCTYPE HTML>

@@ -107,7 +107,7 @@
                             } 
                             else
                             {
-                                $img_path = "./images/no-image.png";
+                                $img_path = "../../images/no-image.png";
                                 $width = 130;
                                 $height = 170;
                             }

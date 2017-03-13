@@ -377,7 +377,7 @@ a.pstr-prev:hover, a.pstr-next:hover{
 .baseimg a {
     width: 16px;
     height: 16px;
-    background: url(..images/product-del.png);
+    background: url(../../images/action_delete.png); 
     float: left;
     cursor: pointer;
     margin-left: 5px;
