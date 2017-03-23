@@ -20,8 +20,8 @@ $(document).ready(function() {
         });
     });
     
-    $('.select-brand').click(function() {
-        $(".list-brands").slideToggle(200);
+    $('.select-links').click(function() {
+        $(".list-brands, .list-rew-sort").slideToggle(200);
     });
     
     $('.click-header').click(function(){
