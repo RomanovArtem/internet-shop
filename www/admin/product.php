@@ -41,7 +41,7 @@
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="jquery_confirm/jquery_confirm.js"></script> 
     
-	<title>Панель управления</title>
+	<title>Панель управления - Товары</title>
 </head>
 
 <body>

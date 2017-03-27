@@ -41,32 +41,37 @@ $(document).ready(function() {
         } 
         else {
             $.ajax({
-  type: "POST",
-  url: "./actions/delete-category.php",
-  data: "id="+selectId,
-  dataType: "html",
-  cache: false,
-  success: function(data) {
-    switch(data){
-        case "delete":
-            $("#select-type").css("border", "3px solid #D1E7BC");
-            $("#select-type option:selected").remove();
-            $(".form-success").css("display", "none");
-            $(".form-error").css("display", "none");
-            break;
-        case "no-delete":
-            $(".form-success").css("display", "none");
-            $(".form-error").css("display", "none");
-            alert("Удаление невозможно! \nНекоторые товары относятся к данной категории.");
-            break;
+                type: "POST",
+                url: "./actions/delete-category.php",
+                data: "id="+selectId,
+                dataType: "html",
+                cache: false,
+                success: function(data) {
+                    switch(data){
+                        case "delete":
+                            $("#select-type").css("border", "3px solid #D1E7BC");
+                            $("#select-type option:selected").remove();
+                            $(".form-success").css("display", "none");
+                            $(".form-error").css("display", "none");
+                            break;
+                            
+                        case "no-delete":
+                            $(".form-success").css("display", "none");
+                            $(".form-error").css("display", "none");
+                            alert("Удаление невозможно! \nНекоторые товары относятся к данной категории.");
+                            break;
             
-        default:
-            break;
-    }
+                        default:
+                            break;
+                    }
                    
                 }
             });
         }
+    });
+    
+    $('.block-clients').click(function() {
+        $(this).find('ul').slideToggle(300);
     });
     
     

@@ -9,7 +9,7 @@
 			unset($_SESSION['auth_admin']); // удаляем сессиию auth_admin
 			header("Location: login.php"); // пернаправляем
 		}
-		$_SESSION['urlpage'] = "<a href= 'index.php'>Главная</a>  \ <a href= 'category.php'>Категории     </a>"; // в сессию помещаем ссылку для навигационной цепочки
+		$_SESSION['urlpage'] = "<a href= 'index.php'>Главная</a>  \ <a href= 'category.php'>Категории</a>"; // в сессию помещаем ссылку для навигационной цепочки
 
 		include("include/db_connect.php"); // подключаемся к бд
         include("actions/add-category.php");
