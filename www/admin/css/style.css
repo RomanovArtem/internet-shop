@@ -463,3 +463,40 @@ a.pstr-prev:hover, a.pstr-next:hover{
 .links-actions {
     margin-right: 15px;
 }
+.cat-product {
+    margin-top: 20px;
+}
+.cat-product li {
+    margin-top: 15px;
+}
+.cat-product label {
+   position: absolute;
+   margin-top: 3px;
+   margin-left: 15px;
+   font: 14px arial;
+}
+.cat-product select {
+    margin-left: 150px;
+    width: 400px;
+    height: 350px;
+}
+.cat-product input {
+    margin-left: 150px;
+    width: 300px;
+    height: 25px;
+}
+.cat-product div {
+    position: absolute;
+    margin-left: 560px;
+    display: inline-block;
+}
+.cat-product a {
+    font: 14px sans-serif;
+    display: block;
+    margin-top: 4px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.cat-product a:hover {
+    text-decoration: none;
+}
