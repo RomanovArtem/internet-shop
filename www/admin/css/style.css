@@ -620,3 +620,62 @@ a.pstr-prev:hover, a.pstr-next:hover{
     margin-left: 15px;
     border: 1px solid #E0E0E0;
 }
+.info-admin li {
+    margin-top: 10px;
+}
+.info-admin label {
+    position: absolute;
+    margin-left: 15px;
+    font: 14px arial;
+    margin-top: 6px;
+}
+.info-admin input {
+    margin-left: 200px;
+    height: 30px;
+    width: 350px;
+    font: 17px sans-serif;
+    border-left: 1px solid #ABABAB;
+    border-top: 1px solid #ABABAB;
+    border-right: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    padding-left: 5px;
+}
+.title-privilege {
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font: bold 18px sans-serif;
+}
+.link-privilege {
+    margin-left: 15px;
+}
+.link-privilege a {
+    font: 13px sans-serif;
+    text-decoration: underline;
+    color: #D15019;
+    cursor: pointer;
+}
+.link-privilege a:hover {
+    text-decoration: none;
+}
+.block-privilege {
+    height: 120px;
+}
+.privilege {
+    float: left;
+    margin-left: 10px;
+}
+.privilege li {
+    margin-left: 15px;
+}
+.privilege h3 {
+    font: bold 15px sans-serif;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.privilege label {
+    font: 14px sans-serif;
+}
+.privilege label:hover,input:hover {
+    cursor: pointer;
+}
