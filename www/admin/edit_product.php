@@ -59,6 +59,13 @@
             <p class="title-page">Изменение товара</p>
 		</div>
         
+         <?php
+	       if (isset($_SESSION['message'])) {
+	           echo $_SESSION['message'];
+               unset($_SESSION['message']);
+	       }
+        ?>
+        
         <?php 
             $result = mysql_query("SELECT * FROM table_products WHERE products_id='$id'", $link);
             if (mysql_num_rows($result) > 0)

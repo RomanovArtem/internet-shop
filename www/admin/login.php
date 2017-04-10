@@ -11,9 +11,9 @@
         
         if ($login && $password)
         {
-            //$password = md5($password);
-            //$password = strrev($password);
-            //$password = strtolower("9nm2rv8q".$password."2yo6z");
+            $password = md5($password);
+            $password = strrev($password);
+            $password = strtolower("dqw3443kl".$password."sdad213123");
             
             $result = mysql_query("SELECT * FROM admins WHERE login = '$login' AND password = '$password'", $link);
         

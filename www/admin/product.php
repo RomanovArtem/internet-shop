@@ -67,7 +67,7 @@
         <!--сначала создаю список, т.к. товары выводятся списком -->
         <ul class = "block-product">
             <?php
-                $num = 8;//сколько выводить товаров на страницу
+                $num = 9;//сколько выводить товаров на страницу
                 $page = (int)$_GET['page']; // номер текущей страницы
                 
                 $count = mysql_query("SELECT COUNT(*) FROM table_products $category",$link); // общее кол-во товаров в бд

@@ -75,4 +75,16 @@ $(document).ready(function() {
     });
     
     
+    $('#select-all').click(function() {
+        $('.privilege input:checkbox').attr('checked', true);
+    });
+    
+     $('#remove-all').click(function() {
+        $('.privilege input:checkbox').attr('checked', false);
+    });
+    
+    $(function(){
+        $("#tel-admin").mask("8(999) 999-9999");
+    });
+    
 });

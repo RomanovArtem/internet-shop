@@ -9,12 +9,11 @@
 			unset($_SESSION['auth_admin']); // удаляем сессиию auth_admin
 			header("Location: login.php"); // пернаправляем
 		}
-		$_SESSION['urlpage'] = "<a href= 'index.php'>Главная</a> \ <a href= 'add_administrator.php'>Добвление администратора</a>"; // в сессию помещаем ссылку для навигационной цепочки
+		$_SESSION['urlpage'] = "<a href= 'index.php'>Главная</a> \ <a href= 'add_administrator.php'>Добавление администратора</a>"; // в сессию помещаем ссылку для навигационной цепочки
 
 		include("include/db_connect.php"); // подключаемся к бд
-        
-        $all_clients = mysql_query("SELECT * FROM reg_user", $link);
-        $result_count = mysql_num_rows($all_clients)
+        include("include/functions.php");
+        include("include/checking_fields_add_administrator.php");	
 ?>	
 <!DOCTYPE HTML>
 <html>
@@ -24,11 +23,7 @@
 	<link href ="css/style.css" rel="stylesheet" type="text/css" />
     <link href ="jquery_confirm/jquery_confirm.css" rel="stylesheet" type="text/css" />
     
-    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script> 
-    <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="jquery_confirm/jquery_confirm.js"></script> 
-    
-	<title>Панель управления - Клиенты</title>
+	<title>Панель управления - Добавление администратора</title>
 </head>
 
 <body>
@@ -40,7 +35,12 @@
 		<div class = "block-parameters">
 			<p class="title-page">Добавление администратора</p>
 		</div>
-        
+        <?php
+	       if (isset($_SESSION['message'])) {
+	           echo $_SESSION['message'];
+               unset($_SESSION['message']);
+	       }
+        ?>
         <form method="post" id="form-info">
             <ul class="info-admin">
                 <li><label>Логин</label><input type="text" name="admin_login" /></li>
@@ -48,7 +48,7 @@
                 <li><label>ФИО</label><input type="text" name="admin_fio" /></li>
                 <li><label>Должность</label><input type="text" name="admin_role" /></li>
                 <li><label>E-mail</label><input type="email" name="admin_email" /></li>
-                <li><label>Телефон</label><input type="tel" name="admin_email" /></li>
+                <li><label>Телефон</label><input type="tel" id="tel-admin" name="admin_tel" placeholder="8(123) 456-67890"/></li>
             </ul>
             
             <h3 class="title-privilege">Привилегии</h3>
@@ -148,6 +148,11 @@
         </form>
 	</div>
 </div>
+
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script> 
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="jquery_confirm/jquery_confirm.js"></script> 
+    <script type="text/javascript" src="js/jquery.maskedinput.js"></script> 
 </body>
 </html>
 <?php 

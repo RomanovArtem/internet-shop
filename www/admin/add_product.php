@@ -40,6 +40,12 @@
             <p class="title-page">Добавление товара</p>
 		</div>
         
+         <?php
+	       if (isset($_SESSION['message'])) {
+	           echo $_SESSION['message'];
+               unset($_SESSION['message']);
+	       }
+        ?>
         
         <form enctype="multipart/form-data" method="post">
             <ul class="edit-product">
