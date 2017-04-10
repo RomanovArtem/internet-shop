@@ -15,7 +15,7 @@
 <div class="left-nav">
 	<ul>
 		<li><a href="orders.php">Заказы</a></li>
-		<li><a href="product.php">Товары</a></li>
+		<li><a href="products.php">Товары</a></li>
 		<li><a href="reviews.php">Отзывы</a></li>
 		<li><a href="category.php">Категории</a></li>
 		<li><a href="clients.php">Клиенты</a></li>

@@ -9,7 +9,7 @@
 			unset($_SESSION['auth_admin']); // удаляем сессиию auth_admin
 			header("Location: login.php"); // пернаправляем
 		}
-		$_SESSION['urlpage'] = "<a href= 'index.php'>Главная</a> \ <a href= 'product.php'>Товары</a>"; // в сессию помещаем ссылку для навигационной цепочки
+		$_SESSION['urlpage'] = "<a href= 'index.php'>Главная</a> \ <a href= 'products.php'>Товары</a>"; // в сессию помещаем ссылку для навигационной цепочки
 
 		include("include/db_connect.php"); // подключаемся к бд
         
@@ -119,7 +119,7 @@
                                     <img src = "'.$img_path.'" width = "'.$width.'" height = "'.$height.'" />
                                 </center>
                                 <p align="center" class="link-action">
-                                    <a class="green" href="edit_product.php?id='.$row["products_id"].'">Изменить</a> | <a rel="product.php?'.$url.'id='.$row["products_id"].'&action=delete" class="delete" > Удалить</a>
+                                    <a class="green" href="edit_product.php?id='.$row["products_id"].'">Изменить</a> | <a rel="products.php?'.$url.'id='.$row["products_id"].'&action=delete" class="delete" > Удалить</a>
                                 </p>
                             </li>                            
                             ';
@@ -130,26 +130,26 @@
                     } 
                 }
                 
-if ($page != 1) $pervpage = '<li><a class="pstr-prev" href="product.php?'.$url.'page='. ($page - 1) .'" />Назад</a></li>';
+if ($page != 1) $pervpage = '<li><a class="pstr-prev" href="products.php?'.$url.'page='. ($page - 1) .'" />Назад</a></li>';
  
-if ($page != $total) $nextpage = '<li><a class="pstr-next" href="product.php?'.$url.'page='. ($page + 1) .'"/>Вперёд</a></li>';
+if ($page != $total) $nextpage = '<li><a class="pstr-next" href="products.php?'.$url.'page='. ($page + 1) .'"/>Вперёд</a></li>';
  
 // Находим две ближайшие станицы с обоих краев, если они есть
-if($page - 5 > 0) $page5left = '<li><a href="product.php?'.$url.'page='. ($page - 5) .'">'. ($page - 5) .'</a></li>';
-if($page - 4 > 0) $page4left = '<li><a href="product.php?'.$url.'page='. ($page - 4) .'">'. ($page - 4) .'</a></li>';
-if($page - 3 > 0) $page3left = '<li><a href="product.php?'.$url.'page='. ($page - 3) .'">'. ($page - 3) .'</a></li>';
-if($page - 2 > 0) $page2left = '<li><a href="product.php?'.$url.'page='. ($page - 2) .'">'. ($page - 2) .'</a></li>';
-if($page - 1 > 0) $page1left = '<li><a href="product.php?'.$url.'page='. ($page - 1) .'">'. ($page - 1) .'</a></li>';
+if($page - 5 > 0) $page5left = '<li><a href="products.php?'.$url.'page='. ($page - 5) .'">'. ($page - 5) .'</a></li>';
+if($page - 4 > 0) $page4left = '<li><a href="products.php?'.$url.'page='. ($page - 4) .'">'. ($page - 4) .'</a></li>';
+if($page - 3 > 0) $page3left = '<li><a href="products.php?'.$url.'page='. ($page - 3) .'">'. ($page - 3) .'</a></li>';
+if($page - 2 > 0) $page2left = '<li><a href="products.php?'.$url.'page='. ($page - 2) .'">'. ($page - 2) .'</a></li>';
+if($page - 1 > 0) $page1left = '<li><a href="products.php?'.$url.'page='. ($page - 1) .'">'. ($page - 1) .'</a></li>';
  
-if($page + 5 <= $total) $page5right = '<li><a href="product.php?'.$url.'page='. ($page + 5) .'">'. ($page + 5) .'</a></li>';
-if($page + 4 <= $total) $page4right = '<li><a href="product.php?'.$url.'page='. ($page + 4) .'">'. ($page + 4) .'</a></li>';
-if($page + 3 <= $total) $page3right = '<li><a href="product.php?'.$url.'page='. ($page + 3) .'">'. ($page + 3) .'</a></li>';
-if($page + 2 <= $total) $page2right = '<li><a href="product.php?'.$url.'page='. ($page + 2) .'">'. ($page + 2) .'</a></li>';
-if($page + 1 <= $total) $page1right = '<li><a href="product.php?'.$url.'page='. ($page + 1) .'">'. ($page + 1) .'</a></li>';
+if($page + 5 <= $total) $page5right = '<li><a href="products.php?'.$url.'page='. ($page + 5) .'">'. ($page + 5) .'</a></li>';
+if($page + 4 <= $total) $page4right = '<li><a href="products.php?'.$url.'page='. ($page + 4) .'">'. ($page + 4) .'</a></li>';
+if($page + 3 <= $total) $page3right = '<li><a href="products.php?'.$url.'page='. ($page + 3) .'">'. ($page + 3) .'</a></li>';
+if($page + 2 <= $total) $page2right = '<li><a href="products.php?'.$url.'page='. ($page + 2) .'">'. ($page + 2) .'</a></li>';
+if($page + 1 <= $total) $page1right = '<li><a href="products.php?'.$url.'page='. ($page + 1) .'">'. ($page + 1) .'</a></li>';
  
 if ($page+5 < $total)
 {
-    $strtotal = '<li><p class="nav-point">...</p></li><li><a href="product.php?'.$url.'page='.$total.'">'.$total.'</a></li>';
+    $strtotal = '<li><p class="nav-point">...</p></li><li><a href="products.php?'.$url.'page='.$total.'">'.$total.'</a></li>';
 }else
 {
     $strtotal = ""; 
@@ -164,7 +164,7 @@ if ($page+5 < $total)
     <div class="pstrnav">
     <ul>   
     ';
-    echo $pervpage.$page5left.$page4left.$page3left.$page2left.$page1left."<li><a class='pstr-active' href='product.php?".$url."page=".$page."'>".$page."</a></li>".$page1right.$page2right.$page3right.$page4right.$page5right.$strtotal.$nextpage;
+    echo $pervpage.$page5left.$page4left.$page3left.$page2left.$page1left."<li><a class='pstr-active' href='products.php?".$url."page=".$page."'>".$page."</a></li>".$page1right.$page2right.$page3right.$page4right.$page5right.$strtotal.$nextpage;
     echo '
     </center>   
     </ul>
