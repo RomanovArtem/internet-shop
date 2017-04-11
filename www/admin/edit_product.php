@@ -7,7 +7,7 @@
 		if (isset($_GET["logout"]))
 		{
 			unset($_SESSION['auth_admin']); // удал€ем сессиию auth_admin
-			header("Location: login.php"); // пернаправл€ем
+			header("Location: login.php"); // перенаправл€ем
 		}
 		$_SESSION['urlpage'] = "<a href= 'index.php'>√лавна€</a> \ <a href= 'product.php'>“овары</a>  \ <a>»зменение товара</a>"; // в сессию помещаем ссылку дл€ навигационной цепочки
 
