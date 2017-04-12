@@ -9,7 +9,7 @@
 			unset($_SESSION['auth_admin']); // удаляем сессиию auth_admin
 			header("Location: login.php"); // перенаправляем
 		}
-		$_SESSION['urlpage'] = "<a href= 'index.php'>Главная</a> \ <a href= 'product.php'>Товары</a>  \ <a>Изменение товара</a>"; // в сессию помещаем ссылку для навигационной цепочки
+		$_SESSION['urlpage'] = "<a href= 'index.php'>Главная</a> \ <a href= 'products.php'>Товары</a> \ <a>Изменение товара</a>"; // в сессию помещаем ссылку для навигационной цепочки
 
 		include("include/db_connect.php"); // подключаемся к бд
         include("include/functions.php");

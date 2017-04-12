@@ -9,7 +9,7 @@
 			unset($_SESSION['auth_admin']); // удаляем сессиию auth_admin
 			header("Location: login.php"); // пернаправляем
 		}
-		$_SESSION['urlpage'] = "<a href= 'index.php'>Главная</a> \ <a href= 'edit_administrator.php'>Изменение администратора</a>"; // в сессию помещаем ссылку для навигационной цепочки
+		$_SESSION['urlpage'] = "<a href= 'index.php'>Главная</a> \ <a href= 'administrators.php'>Адмнистраторы</a> \ <a>Изменение администратора</a>"; // в сессию помещаем ссылку для навигационной цепочки
 
 		include("include/db_connect.php"); // подключаемся к бд
         include("include/functions.php");
