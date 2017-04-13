@@ -47,13 +47,14 @@
             do {
                 if ($row["order_confirmed"] == 'yes') {
                     $status = '<b class="green">Обработан</b>';
+                    $linkOrder =' <p class="view-order-link"><a class="delete" rel="view_order.php?id='.$row["order_id"].'&action=delete">Удалить заказ</a></p>';
                 }
                 else {
                     $status = '<b class="red">Не обработан</b>';
+                    $linkOrder = '<p class="view-order-link"><a class="green" href="view_order.php?id='.$row["order_id"].'&action=accept">Подтвердить заказ</a> | <a class="delete" rel="view_order.php?id='.$row["order_id"].'&action=delete">Удалить заказ</a></p>';
                 }
-                
                 echo '
-                    <p class="view-order-link"><a class="green" href="view_order.php?id='.$row["order_id"].'&action=accept">Подтвердить заказ</a> | <a class="delete" rel="view_order.php?id='.$row["order_id"].'&action=delete">Удалить заказ</a></p>
+                    '.$linkOrder.'
                     <p class="order_datetime">'.$row["order_datetime"].'</p>
                     <p class="order_number">Заказ № '.$row["order_id"].' - '.$status.'</p>
                     

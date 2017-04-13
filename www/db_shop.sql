@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 12 2017 г., 00:27
+-- Время создания: Апр 13 2017 г., 20:21
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -57,9 +57,8 @@ CREATE TABLE IF NOT EXISTS `admins` (
 --
 
 INSERT INTO `admins` (`id`, `login`, `password`, `fio`, `role`, `email`, `phone`, `view_orders`, `accept_orders`, `delete_orders`, `add_products`, `edit_products`, `delete_products`, `accept_reviews`, `delete_reviews`, `view_clients`, `delete_clients`, `add_news`, `delete_news`, `add_category`, `delete_category`, `view_admins`) VALUES
-(1, 'admin', 'admin', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (3, 'WDQDQWD', 'dqw3443kl36493b734b5a2fa21fb52e8e7891f595sdad213123', 'DWDQWDQWD', 'DWQDQWDQ', 'DWQDQWD@M.R', '8(222) 222-2222', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-(5, 'Admin1', 'dqw3443kl32ee47659907ede10a0aa60b0b9a33e2sdad213123', 'Романов Артём Константинович', 'Всея Руси!', 'te@ma.ry', '8(999) 999-9999', 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1);
+(5, 'admin', 'dqw3443kl3cf108a4e0a498347a5a75a792f23212sdad213123', 'Романов Артём Константинович', 'Всея Руси!', 'te@ma.ry', '8(999) 999-9999', 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -127,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `buy_products` (
   KEY `buy_id` (`buy_id`),
   KEY `buy_id_order` (`buy_id_order`),
   KEY `buy_id_product` (`buy_id_product`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=65 ;
 
 --
 -- Дамп данных таблицы `buy_products`
@@ -138,7 +137,12 @@ INSERT INTO `buy_products` (`buy_id`, `buy_id_order`, `buy_id_product`, `buy_cou
 (46, 23, 2, 3),
 (50, 26, 1, 2),
 (51, 26, 10, 3),
-(52, 26, 6, 4);
+(52, 26, 6, 4),
+(60, 31, 13, 555),
+(61, 32, 7, 5),
+(62, 32, 6, 5),
+(63, 32, 3, 5),
+(64, 33, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -156,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   KEY `cart_id` (`cart_id`),
   KEY `cart_id_products` (`cart_id_products`),
   KEY `cart_user_id` (`cart_user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=144 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=148 ;
 
 --
 -- Дамп данных таблицы `cart`
@@ -209,18 +213,22 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `order_delivery` varchar(255) NOT NULL,
   `order_type_pay` varchar(100) NOT NULL,
   `order_note` text NOT NULL,
-  `order_confirmed` varchar(50) NOT NULL,
+  `order_confirmed` varchar(50) NOT NULL DEFAULT 'no',
+  `order_pay` varchar(40) NOT NULL,
   PRIMARY KEY (`order_id`),
   KEY `id_buyer` (`id_buyer`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
 --
 -- Дамп данных таблицы `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `id_buyer`, `order_datetime`, `order_total_price`, `order_delivery`, `order_type_pay`, `order_note`, `order_confirmed`) VALUES
-(23, 1, '2016-05-08 00:20:30', 161070, 'Курьером', '', 'Доставить в 18.00. Спасибо!', ''),
-(26, 1, '2016-05-12 21:35:09', 194885, 'Курьером', '', 'Доставьте 21.12.2015 около 18.00. Спасибо!', '');
+INSERT INTO `orders` (`order_id`, `id_buyer`, `order_datetime`, `order_total_price`, `order_delivery`, `order_type_pay`, `order_note`, `order_confirmed`, `order_pay`) VALUES
+(23, 1, '2016-05-08 00:20:30', 161070, 'Курьером', 'как', 'Доставить в 18.00. Спасибо!', 'yes', 'accepted'),
+(26, 1, '2016-05-12 21:35:09', 194885, 'Курьером', 'как', 'Доставьте 21.12.2015 около 18.00. Спасибо!', 'yes', ''),
+(31, 7, '2017-04-13 03:02:42', 23773425, 'По почте', '', 'asdfg', 'yes', ''),
+(32, 7, '2017-04-13 16:03:46', 457900, 'Самовывоз', '', 'Сам приеду', 'no', ''),
+(33, 7, '2017-04-13 16:13:43', 49380, 'По почте', '', 'qqq', 'yes', 'accepted');
 
 -- --------------------------------------------------------
 
@@ -241,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `reg_user` (
   `datetime` datetime NOT NULL,
   `ip` varchar(50) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=9 ;
 
 --
 -- Дамп данных таблицы `reg_user`
@@ -249,7 +257,8 @@ CREATE TABLE IF NOT EXISTS `reg_user` (
 
 INSERT INTO `reg_user` (`user_id`, `login`, `password`, `surname`, `name`, `patronymic`, `email`, `phone`, `address`, `datetime`, `ip`) VALUES
 (1, 'admin', '9nm2rv8qa803b39c1116ef6d4a74039da2828af72yo6z', 'Романов', 'Артём', 'Константинович', 'romanov@gmail.com', '89605201771', 'г.Калуга, ул.Никитина, д.19', '2016-04-15 22:12:38', '127.0.0.1'),
-(7, 'ivanovv', '9nm2rv8qfdf4e46de0708e655e0bc7bc536d702d2yo6z', 'Иванов', 'Иван', 'Иванович', 'Ivanov@yandex.ru', '87779998077', 'г. Москва, ул. Московская, дом 1, кв. 2', '2017-03-28 00:47:41', '127.0.0.1');
+(7, 'ivanovv', '9nm2rv8qfdf4e46de0708e655e0bc7bc536d702d2yo6z', 'Иванов', 'Иван', 'Иванович', 'Ivanov@yandex.ru', '87779998077', 'г. Москва, ул. Московская, дом 1, кв. 2', '2017-03-28 00:47:41', '127.0.0.1'),
+(8, 'kekkek', '9nm2rv8qe9240e9440751d24c8ce78a0b3920b712yo6z', 'kekek', 'ewqeqwe', 'wqeqe', 'eqweqw@mail.ru', '44444444444', 'ewqe', '2017-04-13 15:25:41', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -300,8 +309,8 @@ INSERT INTO `table_products` (`products_id`, `title`, `price`, `seo_words`, `seo
 (13, 'Ride Machete GT', 42835, '', '', 'Одна из самых диких досок в мире! Оружие, которое делает тебя фаворитом на любом склоне и на любом трамплине. С Machete GT - ты можешь легко забыть слово "невозможно" и превратить любую гору в площадку для игр… Игр - по твоим правилам...', 'img13.jpg', '', 'Бренд: Ride                      <p>Артикул: 1250002</p>  <p>Год: 2015/2016</p>  <p>Форма: 	Twin</p>  Стиль катания: Freestyle / Freeride', '', '2016-04-28 15:17:12', 0, 0, 0, 1, 7),
 (14, 'Bataleon Boss', 42055, '', '', 'Встречайте главную новинку линейки Bataleon нового сезона. Это доска собрала в себе лучшее от стритовой геометрии и мощнейшего щелчка парковых досок до управляемости снарядов из жанра All Mountain.', 'img14.jpg', '', 'Бренд: Bataleon                      <p>Артикул: 10.16.BOSS</p>  <p>Год: 2015/2016</p>  <p>Форма: Twin</p>  Стиль катания: 	Freestyle / Freeride', '', '2016-05-05 00:54:20', 0, 0, 0, 1, 1),
 (15, 'товар', 21112, '', '', 'цыфвцйвйц', '4-1577.jpg', '<p>ывфывфыв</p>\r\n', 'вцйвйц', '<p>цуцйуйуйц</p>\r\n', '2017-03-13 12:28:21', 0, 0, 0, 1, 4),
-(16, '221313', 2312, '', '', 'цуйцу', '', '<p>цйуйуйцу</p>\r\n', 'цуйцу', '<p>цуйцй</p>\r\n', '2017-03-13 22:39:24', 0, 0, 0, 1, 4),
-(18, '3342', 3242, '', '', 'rewrw', '4-1811.jpg', '<p>wer</p>\r\n', 'werw', '<p>ewr</p>\r\n', '2017-03-23 23:28:45', 0, 0, 0, 1, 30);
+(16, 'lol', 2312, '', '', 'цуйцу', '', '<p>цйуйуйцу</p>\r\n', 'цуйцу', '<p>цуйцй</p>\r\n', '2017-03-13 22:39:24', 0, 0, 0, 1, 4),
+(18, 'kek', 3242, '', '', 'rewrw', '4-1811.jpg', '<p>wer</p>\r\n', 'werw', '<p>ewr</p>\r\n', '2017-03-23 23:28:45', 0, 0, 0, 1, 30);
 
 -- --------------------------------------------------------
 
@@ -322,7 +331,7 @@ CREATE TABLE IF NOT EXISTS `table_reviews` (
   KEY `reviews_id` (`reviews_id`),
   KEY `products_id` (`products_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Дамп данных таблицы `table_reviews`
@@ -330,7 +339,8 @@ CREATE TABLE IF NOT EXISTS `table_reviews` (
 
 INSERT INTO `table_reviews` (`reviews_id`, `products_id`, `user_id`, `good_reviews`, `bad_reviews`, `comment`, `date`, `approved`) VALUES
 (1, 1, 1, 'Сноуборд супер ', 'Недостатков не найдено', 'До Москвы курьером шёл 14 дней.', '2016-04-13 13:06:11', 1),
-(15, 12, 7, 'Отличная Доска!', 'Цена (', 'Рекомендую для профессионалов! =)', '2017-03-28 00:50:06', 1);
+(15, 12, 7, 'Отличная Доска!', 'Цена (', 'Рекомендую для профессионалов! =)', '2017-03-28 00:50:06', 1),
+(16, 7, 1, '111', '1', '1', '2017-04-12 07:19:18', 0);
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
