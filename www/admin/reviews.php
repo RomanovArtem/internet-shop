@@ -54,8 +54,8 @@
 		</div>
         <div class="block-info">
         <ul class="review-info-count">
-            <li>Всего отзывов: <strong><?php echo $allCountResult;?></strong></li>
-            <li>Не проверенные: <strong><?php echo $noAcceptCountResult;?></strong></li>
+            <li>Всего отзывов: <b><?php echo $allCountResult;?></b></li>
+            <li>Не проверенных: <b><?php echo $noAcceptCountResult;?></b></li>
         </ul>
         </div>
          <?php
