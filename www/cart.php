@@ -40,8 +40,8 @@
         {
            
             
-            mysql_query(" INSERT INTO `orders`(`id_buyer`, `order_datetime`, `order_delivery`, `order_total_price`, `order_note`) 
-        VALUES ('".$_SESSION['input_id']."', NOW(), '".$_POST["order_delivery"]."', '".$totalPriceCart."', '".$_POST["order_note"]."')", $link);
+            mysql_query(" INSERT INTO `orders`(`id_buyer`, `order_datetime`, `order_delivery`, `order_total_price`, `order_note`, `order_pay`) 
+        VALUES ('".$_SESSION['input_id']."', NOW(), '".$_POST["order_delivery"]."', '".$totalPriceCart."', '".$_POST["order_note"]."', 'accepted')", $link);
         
             
             $_SESSION["order_delivery"] = $_POST["order_delivery"];
