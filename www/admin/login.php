@@ -22,6 +22,33 @@
                 $row = mysql_fetch_array($result);
                 $_SESSION['auth_admin'] = 'yes_auth'; //с помощью сессии определяем авторизован админ или нет, если да, то перенаправляем на админ панель
                 //укзываем куда перенаправить
+                $_SESSION['admin_login'] = $row["login"];
+        // Должность
+        $_SESSION['admin_role'] = $row["role"];
+        // Привилегии
+        // Заказы
+        $_SESSION['view_orders'] = $row["view_orders"];
+        $_SESSION['delete_orders'] = $row["delete_orders"];
+        $_SESSION['accept_orders'] = $row["accept_orders"];
+        // Товары  
+        $_SESSION['delete_products'] = $row["delete_products"];
+        $_SESSION['add_products'] = $row["add_products"];
+        $_SESSION['edit_products'] = $row["edit_products"];
+        // Отзывы
+        $_SESSION['accept_reviews'] = $row["accept_reviews"];
+        $_SESSION['delete_reviews'] = $row["delete_reviews"];    
+        // Клиенты
+        $_SESSION['view_clients'] = $row["view_clients"];
+        $_SESSION['delete_clients'] = $row["delete_clients"]; 
+        // Новости
+        $_SESSION['add_news'] = $row["add_news"]; 
+        $_SESSION['delete_news'] = $row["delete_news"];
+        // Категории
+        $_SESSION['add_category'] = $row["add_category"]; 
+        $_SESSION['delete_category'] = $row["delete_category"];  
+        // Администраторы
+        $_SESSION['view_admins'] = $row["view_admins"];
+                
                 header("Location: index.php");
             }
             else

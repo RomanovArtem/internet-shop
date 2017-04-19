@@ -25,10 +25,16 @@
             switch ($action)
             {
                 case 'delete':
+                if ($_SESSION['edit_products'] == '1') {
+                    
                 if (file_exists("../upload_images/".$_GET["img"]))
                 {
                     unlink("../upload_images/".$_GET["img"]); // удаляем файл
                     //$update_img = mysql_query("UPDATE table_products SET image='' WHERE products_id = '$id'",$link);
+                }
+                } 
+                else {
+                    $msgerror = 'У вас нет прав на изменение товаров!';
                 }
                 break;
             }
@@ -60,6 +66,10 @@
 		</div>
         
          <?php
+         if (isset($msgerror)) {
+                echo '<p class="form-error" align="center">'.$msgerror.'</p>';
+         }
+         
 	       if (isset($_SESSION['message'])) {
 	           echo $_SESSION['message'];
                unset($_SESSION['message']);

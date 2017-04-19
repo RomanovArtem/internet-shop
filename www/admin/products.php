@@ -24,7 +24,12 @@
             switch ($action)
             {
                 case 'delete':
-                    $delete = mysql_query("DELETE FROM table_products WHERE products_id = '$id'", $link);
+                    if ($_SESSION['delete_products'] == '1') {
+                        $delete = mysql_query("DELETE FROM table_products WHERE products_id = '$id'", $link);
+                    }
+                    else {
+                        $msgerror = 'У вас нет прав на удаление товаров!';
+                    }
                     break;
             }
         }
@@ -67,6 +72,9 @@
         <!--сначала создаю список, т.к. товары выводятся списком -->
         <ul class = "block-product">
             <?php
+            if (isset($msgerror)) {
+                echo '<p class="form-error" align="center">'.$msgerror.'</p>';
+            }
                 $num = 9;//сколько выводить товаров на страницу
                 $page = (int)$_GET['page']; // номер текущей страницы
                 

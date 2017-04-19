@@ -1,6 +1,7 @@
 <?php
 if ($_POST["submit_save"]) 
     {
+        if ($_SESSION['edit_products'] == '1') {
         $error = array();
         
         if (!$_POST["form-title"])
@@ -82,6 +83,9 @@ if ($_POST["submit_save"])
                 unset($_POST["image-upload"]); // очищаем поле от картинки
             }
         }
-        
+        }
+        else {
+            $msgerror = 'У вас нет прав на изменение товаров!';
+        }
     }
 ?>

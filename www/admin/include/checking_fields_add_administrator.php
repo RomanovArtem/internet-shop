@@ -1,6 +1,7 @@
 <?php
 if ($_POST["submit_add"]) 
     {
+        if ($_SESSION['admin_login'] == 'admin') {
         $error = array();
         
         
@@ -76,5 +77,9 @@ if ($_POST["submit_add"])
             
             $_SESSION['message'] = "<p class='form-success'>Администратор успешно добавлен!</p>";           
         }        
+    }
+    else {
+        $msgerror = 'У вас нет прав на добавление администраторов!';
+    }
     }
 ?>

@@ -12,8 +12,8 @@
 		$_SESSION['urlpage'] = "<a href= 'index.php'>Главная</a> \ <a href= 'news.php'>Новости</a>"; // в сессию помещаем ссылку для навигационной цепочки
 
 		include("include/db_connect.php"); // подключаемся к бд
-        include("actions/delete-news.php");
-        include("actions/add-news.php");        
+        include("actions/add-news.php");
+        include("actions/delete-news.php");        
         
         $all_news = mysql_query("SELECT * FROM news", $link);
         $result_count = mysql_num_rows($all_news)
@@ -52,6 +52,9 @@
             <p align="right" class="add-product"><a class="news" href="#news" >Добавить новость</a></p>
 		</div>
         <?php 
+        if (isset($msgerror)) {
+                echo '<p class="form-error" align="center">'.$msgerror.'</p>';
+        }
             if ($message != "") echo $message;
             
         ?>

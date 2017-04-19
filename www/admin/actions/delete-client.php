@@ -6,6 +6,7 @@ $action = $_GET["action"];
 if(isset($action)) {
     switch ($action) {
         case 'delete':
+        if ($_SESSION['delete_clients'] == '1') {
             $countOrder = mysql_query("SELECT COUNT(*) FROM orders WHERE id_buyer = '$id'",$link);
             $count = mysql_fetch_array($countOrder);
             //$deleteReviews = mysql_query("DELETE FROM reviews WHERE user_id = '$id'",$link);
@@ -25,6 +26,10 @@ if(isset($action)) {
                     alert("Пользователь, его корзина и отзывы удалены!");
                 </script>
             <?php }
+            }
+            else {
+                $msgerror = 'У вас нет прав на удаление клиентов!';
+            }
             break;
         default:
             break;

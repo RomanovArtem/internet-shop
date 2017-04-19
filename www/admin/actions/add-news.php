@@ -1,5 +1,6 @@
 <?php
-if ($_POST["submit_news"]) {   
+if ($_POST["submit_news"]) { 
+    if ($_SESSION['add_news'] == '1') {
     if ($_POST["news_title"] == "" || $_POST["news_text"] == "") {
         $message = "<p class = 'form-error'>Заполните все поля!</p>";
     }
@@ -17,6 +18,10 @@ if ($_POST["submit_news"]) {
             unset($_POST["image-upload"]); // очищаем поле от картинки
         
         $message = "<p class='form-success'>Новость добавлена!</p>";
+    }
+    }
+    else {
+        $msgerror = 'У вас нет прав на добавление новостей!';
     }
 }
 ?>

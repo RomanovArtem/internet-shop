@@ -59,6 +59,10 @@
         </ul>
         </div>
          <?php
+            if (isset($msgerror)) {
+                echo '<p class="form-error" align="center">'.$msgerror.'</p>';
+            }
+         
                 $num = 4;//сколько выводить товаров на страницу
                 $page = (int)$_GET['page']; // номер текущей страницы
                 
@@ -105,7 +109,7 @@
                             }
                             
                             if ($row["approved"] == '0') {
-                                $linkAccept = '<a class = "green" href="reviews.php?id='.$row["reviews_id"].'&action=accept" >ѕрин€ть</a> |';
+                                $linkAccept = '<a class = "green" href="reviews.php?id='.$row["reviews_id"].'&action=accept" >ѕрин€ть</a> | ';
                             }
                             else {
                                 $linkAccept = '';

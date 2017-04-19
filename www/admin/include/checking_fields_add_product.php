@@ -1,6 +1,8 @@
 <?php
 if ($_POST["submit_add"]) 
     {
+        if ($_SESSION['add_products'] == '1') {
+    
         $error = array();
         
         if (!$_POST["form-title"])
@@ -91,6 +93,9 @@ if ($_POST["submit_add"])
                 unset($_POST["image-upload"]); // очищаем поле от картинки
             }
         }
-        
+        }
+        else {
+            $msgerror = 'У вас нет прав на добавление товаров!';
+        }
     }
 ?>

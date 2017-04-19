@@ -2,6 +2,7 @@
 include("./include/functions.php");
 
 if ($_POST["cat-submit"]) {
+    if ($_SESSION['add_category'] == '1') {
     $error = array();
     
      if (!$_POST["cat-type"]) {
@@ -33,6 +34,10 @@ if ($_POST["cat-submit"]) {
         
       //  header('location: http://'.$_SERVER['HTTP_HOST'].'/admin/category.php');
     }
+}
+else {
+    $msgerror = '” вас нет прав на добавление категорий!';
+}
 }
 
 ?>

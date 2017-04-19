@@ -24,6 +24,7 @@ body {
     border: 1px solid #D6D6D6;
     font: 17px sans-serif;
     padding-left: 10px;
+    border-radius: 5px;
 }
 .submit-enter {
     border: 1px solid #D6D6D6;

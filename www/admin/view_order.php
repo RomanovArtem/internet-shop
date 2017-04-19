@@ -41,6 +41,12 @@
            <p class="title-page">Просмотр заказа</p>                              
 		</div>
         <?php
+        if (isset($msgerror)) {
+            echo '<p class="form-error" align="center">'.$msgerror.'</p>';
+        }
+        
+        if ($_SESSION['view_orders'] == '1')
+        {       
 	       $result = mysql_query("SELECT * FROM orders WHERE order_id='$id'", $link);
            if (mysql_num_rows($result) > 0) {
             $row = mysql_fetch_array($result);
@@ -121,6 +127,10 @@
                 ';
             } while ($row = mysql_fetch_array($result));
            }
+        }
+        else {
+             echo '<p class="form-error" align="center">У вас нет прав на просмотр данного раздела!</p>';
+        }
         ?>
 	</div>
 </div>

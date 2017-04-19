@@ -28,11 +28,21 @@ switch ($sort) {
     if (isset($action)) {
         switch ($action) {
             case 'accept':
-                $update = mysql_query("UPDATE table_reviews SET approved = '1' WHERE reviews_id = '$id'", $link);
+                if ($_SESSION['accept_reviews'] == '1') {
+                    $update = mysql_query("UPDATE table_reviews SET approved = '1' WHERE reviews_id = '$id'", $link);
+                }
+                else {
+                    $msgerror = 'У вас нет прав на одобрение отзывов!';
+                }
                 break;
             
             case 'delete':
-                $delete = mysql_query("DELETE FROM table_reviews WHERE reviews_id = '$id'", $link);
+                if ($_SESSION['delete_reviews'] == '1') {
+                    $delete = mysql_query("DELETE FROM table_reviews WHERE reviews_id = '$id'", $link);
+                }
+                else {
+                    $msgerror = 'У вас нет прав на удаление отзывов!';
+                }
                 break;
         }       
     }
