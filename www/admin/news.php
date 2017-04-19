@@ -49,7 +49,7 @@
 	<div class="block-content">
 		<div class = "block-parameters">
 			<p class="count-client">Всего новостей: <b><?php echo $result_count;?></b></p>
-            <p align="right" class="add-style"><a class="news" href="#news" >Добавить новость</a></p>
+            <p align="right" class="add-product"><a class="news" href="#news" >Добавить новость</a></p>
 		</div>
         <?php 
             if ($message != "") echo $message;
@@ -169,7 +169,7 @@ if ($page+5 < $total)
                 </div>  
             </div>
             <p align="right">
-                <input type="submit" name="submit_news" class="submit_news" value="Добавить" />
+                <input type="submit" name="submit_news" class="submit-form" value="Добавить" />
             </p>
         </form>
      </div>   

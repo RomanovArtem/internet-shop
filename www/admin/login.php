@@ -41,6 +41,7 @@
 	<meta http-equiv="content-type" content="text/html" />
     <link href="css/reset.css" rel="stylesheet" type="text/css" />
     <link href="css/style-login.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     
 	<title>Панель Управления - Вход</title>
 </head> 
@@ -52,13 +53,21 @@
         echo '<p class = "msgerror">'.$msgerror.'</p>';
     }
 ?>
-<form method="post">
-<ul class="pass-login">
-<li><label>Логин:</label><input type="text" name="input-login" /></li>
-<li><label>Пароль:</label><input type="password" name="input-pass" /></li>
-</ul>
-<p align="right"><input type="submit" name="submit-enter" class="submit-enter" value="Вход" /></p>
-</form>
+
+<div class="panel panel-info my-panel">
+          <div class="panel-heading text-center">Панель управления</div>
+          <div class="panel-body">
+          <form method="post">
+            <ul class="pass-login">
+            <li><label>Логин:</label><input type="text" class="form-control" name="input-login" /></li>
+            <li><label>Пароль:</label><input type="password" name="input-pass" /></li>
+            </ul>
+            <p align="right"><input type="submit" name="submit-enter" class="submit-enter btn btn-info text-center center-block" value="Авторизоваться" /></p>
+          </form>
+          </div>
+        </div>
+
+
 
 </div>
 

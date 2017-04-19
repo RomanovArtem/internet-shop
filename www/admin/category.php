@@ -20,6 +20,7 @@
 	<meta http-equiv ="content-type" content="text/html" />
 	<link href ="css/reset.css" rel="stylesheet" type="text/css" />
 	<link href ="css/style.css" rel="stylesheet" type="text/css" />
+    
 	<title>Панель управления - Категории</title>
 </head>
 
@@ -69,7 +70,7 @@
                     <input type="text" name="cat-brand" />
                 </li>
             </ul>
-            <p align="right"><input type="submit" name="cat-submit" class="cat-submit"/></p>
+            <p align="right"><input type="submit" class="submit-form" name="cat-submit" value="Добавить категорию"/></p>
         </form>
 	</div>
 </div>
