@@ -34,6 +34,9 @@
 			<p class="title-page">Категории</p>
 		</div>
         <?php
+        if (isset($msgerror)) {
+                echo '<p class="form-error" align="center">'.$msgerror.'</p>';
+        }
 	       if(isset($_SESSION['message'])) {
 	           echo $_SESSION['message'];
                unset($_SESSION['message']);
@@ -45,7 +48,11 @@
                 <li>
                     <label>Категории</label>
                     <div>
-                        <a class="delete-cat">Удалить</a>
+                    <?php
+	                   if ($_SESSION['delete_category'] == '1') {
+	                       echo '<a class="delete-cat">Удалить</a>';
+	                   }
+                    ?>
                     </div>
                     <select name="select-type" id="select-type" size="10">
                         <?php
