@@ -6,8 +6,9 @@ if ($_POST["submit_news"]) {
     }
     else {
         
-       mysql_query("INSERT INTO news(title,text,date)
+       mysql_query("INSERT INTO news(admin_id,title,text,date)
         VALUES(
+            '".$_SESSION['id']."',
             '".$_POST["news_title"]."',
             '".$_POST["news_text"]."',
             NOW()

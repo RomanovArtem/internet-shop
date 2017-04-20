@@ -104,10 +104,13 @@
                                 $width = 160;
                                 $height = 120;
                             }
-                            
+                            $admin = $row["admin_id"];
+                            $resultAdmin = mysql_query("SELECT * FROM admins WHERE id=$admin", $link);
+                            $rowAdmin = mysql_fetch_array($resultAdmin);
                             echo '
                             <div class="block-news">
                                 <h3>'.$row["title"].'</h3>
+                                <p class="client-fio">'.$rowAdmin["fio"].': '.$rowAdmin["role"].'</p> 
                                 <span>'.$row["date"].'</span>
                                 <p>'.$row["text"].'</p>          
                                 <img src = "'.$img_path.'" width = "'.$width.'" height = "'.$height.'" />                      
